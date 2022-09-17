@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file, redirect
+from flask import Flask, render_template, request, send_file, redirect, send_from_directory, flash
 from test_filemod import samplefilemod
 from werkzeug.utils import secure_filename
 import string
@@ -25,6 +25,9 @@ def upload():
     file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
     return {"filename": filename}, 200
 
+@app.route("/download/<name>", methods=["GET"])
+def download(name):
+    print("I find")
+    return send_from_directory(app.config["UPLOAD_FOLDER"], name, as_attachment=True)
 
-        #return send_file(samplefilemod(request.files["file"]), as_attachment=True, download_name="unnamed.txt", mimetype="text/plain")
         
