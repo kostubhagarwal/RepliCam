@@ -1,5 +1,6 @@
 import open3d as o3d
 import os
+import sys
 
 # Load point cloud
 def stl_convert(filename:str, search_dir:str):
@@ -28,6 +29,9 @@ def stl_convert(filename:str, search_dir:str):
     return outfile
 
 if __name__ == "__main__":
-    stl_convert("test.las", ".")
+    if len(sys.argv) > 1:
+        stl_convert(f"{sys.argv[1]}", ".")
+    else:
+        stl_convert("test.ply", ".")
 
 

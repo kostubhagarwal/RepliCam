@@ -12,3 +12,4 @@ venv/
 *.stl
 etc/
 *.las
+*.obj
