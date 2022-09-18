@@ -1,5 +1,15 @@
-// Handle form submission
+let storedURL = ""; // name of file to request
 
+
+// Add option to download file
+function createDownload() {
+    let div = document.createElement("div");
+    div.id = "download-header"
+    div.innerHTML = `<a href="/download/${storedURL}" download="${storedURL}">Download</a>`;
+    document.body.appendChild(div);
+}
+
+// Handle form submission
 
 let form = document.getElementById("file-form")
 form.addEventListener("submit", function(e) {
@@ -8,11 +18,13 @@ form.addEventListener("submit", function(e) {
     let file = document.querySelector('input[type="file"]');
     let data = new FormData();
     data.append("file", file.files[0]);
-    fetch("/upload", {
+    return fetch("/upload", {
         method: "POST",
         body:data
     })
-    .then(response => function(r) {
-        console.log(r);
+    .then(response => response.json())
+    .then(data => {
+        storedURL = data.filename;
+        createDownload();
     });
 });
