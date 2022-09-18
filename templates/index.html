@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
   <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
   <head>
@@ -20,3 +21,24 @@
     <script src="{{url_for('static', filename='index.js')}}"></script>
   </body>
 </html>
+=======
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>scan to 3d print</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    </head>
+    <body>
+        <div class="container center">
+            <h1>Upload file</h1>
+            <form id="file-form" method=post enctype=multipart/form-data>
+                <input type=file name=file>
+                <input type=submit value=upload>
+            </form>
+        </div>
+
+        <script src="{{url_for('static', filename='index.js')}}"></script>
+    </body>
+</html>
+>>>>>>> b87670614408e8f301fca4317581ebb2f499f5be
