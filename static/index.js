@@ -1,12 +1,12 @@
 let storedURL = ""; // name of file to request
+let uploaded = false;
 
-
-// Add option to download file
-function createDownload() {
+// Add option to print once a model has been uploaded
+function showPrintOption() {
     let div = document.createElement("div");
-    div.id = "download-header"
-    div.innerHTML = `<a href="/download/${storedURL}" download="${storedURL}">Download</a>`;
-    document.body.appendChild(div);
+    div.id = "print-header"
+    div.innerHTML = `<a href="/print/${storedURL}" print="${storedURL}">Print</a>`;
+    document.getElementById("file-form").appendChild(div);
 }
 
 // Handle form submission
@@ -25,6 +25,9 @@ form.addEventListener("submit", function(e) {
     .then(response => response.json())
     .then(data => {
         storedURL = data.filename;
-        createDownload();
+        if (!uploaded) {
+            uploaded = true;
+            showPrintOption();
+        }
     });
 });
