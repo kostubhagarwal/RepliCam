@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, send_file, redirect, send_from_directory, flash
-from test_filemod import samplefilemod
-from transformers import *
 from werkzeug.utils import secure_filename
+from stltogcode import gcode_convert
+from plytostl import stl_convert
+
 import string
 import os
 import io
@@ -24,7 +25,8 @@ def upload():
     file = request.files["file"]
     filename = ''.join(random.choices(string.ascii_letters + string.digits, k=16)) + secure_filename(file.filename)
     file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-    stlify(filename)
+    stl_filename = stl_convert(filename, app.config["UPLOAD_FOLDER"])
+    gcode_filename = gcode_convert(stl_filename, app.config["UPLOAD_FOLDER"])
     return {"filename": filename}, 200
 
 @app.route("/download/<name>", methods=["GET"])
