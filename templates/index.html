@@ -3,13 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>scan to 3d print</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Upload file</h1>
-        <form id="file-form" method=post enctype=multipart/form-data>
-            <input type=file name=file>
-            <input type=submit value=upload>
-        </form>
+        <div class="container-fluid">
+            <h1>Upload file</h1>
+            <form id="file-form" method=post enctype=multipart/form-data>
+                <input type=file name=file>
+                <input type=submit value=upload>
+            </form>
+        </div>
+
         <script src="{{url_for('static', filename='index.js')}}"></script>
     </body>
 </html>
