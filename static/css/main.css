@@ -1,17 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@1&display=swap");
+
+* {
+  align-items: center;
+}
+
 body {
-    /* vertical-align: center; */
-    height: 100vh;
+  margin-top: 200px;
+  font-weight: 400;
+  height: 120vh;
+  color: rgb(255, 255, 255);
+  background-image: linear-gradient(to top left, #4e59a3 0%, #0e0e0e 100%);
 }
 
-.center {
-    display: flex-wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    vertical-align: center;
-    height: 100%;
+form {
+  text-align: left;
+  margin-left: 10%;
 }
 
-h1 {
-    
+.title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 600;
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.image {
+  width: 400px;
+  height: 100px;
+  margin-top: -2 rem;
+  margin-bottom: -8rem;
 }

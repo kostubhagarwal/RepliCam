@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>scan to 3d print</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
-    </head>
-    <body>
-        <div class="container center">
-            <h1>Upload file</h1>
-            <form id="file-form" method=post enctype=multipart/form-data>
-                <input type=file name=file>
-                <input type=submit value=upload>
-            </form>
-            <script src="{{url_for('static', filename='index.js')}}"></script>
-        </div>
-    </body>
+<html lang="en">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+        <img class="image" src="densityguide.png" alt="Playing dice" class="dice" />
+        <h1 class="title">scan2print</h1>
+        <form id="file-form" method=post enctype=multipart/form-data>
+            <input type=file name=file>
+            <br>
+            <input type=submit value="Upload, Process, Print">
+        </form>
+    </div>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+  </body>
 </html>
