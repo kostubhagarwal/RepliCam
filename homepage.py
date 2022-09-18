@@ -6,11 +6,12 @@ import string
 import os
 import io
 import random
+import tempfile
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 100 * 10E6
 app.config["UPLOAD_EXTENSIONS"] = [".las", ".txt"]
-app.config["UPLOAD_FOLDER"] = "/tmp"
+app.config["UPLOAD_FOLDER"] = tempfile.gettempdir()
 
 @app.route("/", methods=["GET"])
 def homepage():
@@ -23,7 +24,7 @@ def upload():
 
     file = request.files["file"]
     filename = ''.join(random.choices(string.ascii_letters + string.digits, k=16)) + secure_filename(file.filename)
-    file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+    file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename), buffer_size=16384)
     stlify(filename)
     return {"filename": filename}, 200
 
