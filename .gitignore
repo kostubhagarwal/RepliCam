@@ -11,3 +11,5 @@ venv/
 *.ply
 *.stl
 etc/
+*.las
+*.obj
