@@ -28,8 +28,8 @@ def upload():
     stlify(filename)
     return {"filename": filename}, 200
 
-@app.route("/download/<name>", methods=["GET"])
-def download(name):
+@app.route("/print/<name>", methods=["GET"])
+def print(name):
     return send_from_directory(app.config["UPLOAD_FOLDER"], name, as_attachment=True)
 
         
