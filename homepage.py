@@ -24,7 +24,7 @@ def upload():
 
     file = request.files["file"]
     filename = ''.join(random.choices(string.ascii_letters + string.digits, k=16)) + secure_filename(file.filename)
-    file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename), buffer_size=16384)
+    file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
     stlify(filename)
     return {"filename": filename}, 200
 
