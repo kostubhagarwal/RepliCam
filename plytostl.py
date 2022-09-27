@@ -1,3 +1,5 @@
+#requires python 3.6
+
 import open3d as o3d
 import os
 import sys
